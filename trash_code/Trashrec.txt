@@ -1,0 +1,42 @@
+<ul>
+
+
+  <li><a href="cr.html"target="_blank">Profile</a></li>
+<li><a href="ca.html"target="_blank">Create account</a></li>
+<li><a href="login.html"target="_blank">Login</a></li>
+<li><a href="home.html" target=profile>Home</a></li>
+  <li><a href="aboutme.html"target=profile>Abouts</a></li>
+
+
+</ul>
+
+
+// Print name
+
+<?php
+$con=mysqli_connect("localhost","root","","helora");
+// Check connection
+if (mysqli_connect_errno())
+{
+echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+
+$result = mysqli_query($con,"SELECT * FROM users where");
+
+echo "<table cellspacing = 10>
+<tr>
+<th>User name</th>
+<th>Name</th>
+</tr>";
+
+while($row = mysqli_fetch_array($result))
+{
+echo "<tr>";
+echo "<td>" . $row['username'] . "</td>";
+echo "<td>" . $row['name'] . "</td>";
+echo "</tr>";
+}
+echo "</table>";
+
+mysqli_close($con);
+?>
